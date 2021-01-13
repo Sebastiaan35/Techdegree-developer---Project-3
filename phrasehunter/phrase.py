@@ -2,6 +2,14 @@
 """This module is used to show the (secret phrase)"""
 
 class Phrase:
+    phrases = [
+        "ALONE IN A CROWD",
+        "WITHIN THE REALM OF POSSIBILITY",
+        "YOU READ MY MIND",
+        "YOUVE NEVER LOOKED BETTER",
+        "ZERO GRAVITY",
+            ]
+    
     """The phrase class"""
     def __init__(self, phrase, Guess, guesses):
         self.phrase = phrase.lower()

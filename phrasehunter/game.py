@@ -11,13 +11,7 @@ class Game:
         self.guesses = []
         self.missed = 0
         self.active_phrase = None
-        self.phrases = [
-        "ALONE IN A CROWD",
-        "WITHIN THE REALM OF POSSIBILITY",
-        "YOU READ MY MIND",
-        "YOUVE NEVER LOOKED BETTER",
-        "ZERO GRAVITY",
-            ]
+        self.phrases = Phrase.phrases
 
     def start(self):
         """Game instance"""
