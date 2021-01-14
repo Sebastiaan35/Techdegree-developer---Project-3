@@ -27,7 +27,7 @@ class Game:
         print(self.active_phrase.display(self.guesses))
         while not self.game_over():
             self.Guess = self.get_guess()
-            if not self.active_phrase.check_letter(self.guess):
+            if not self.active_phrase.check_letter(self.Guess):
                 self.missed += 1
                 print(f'\nI\'m sorry. There is no \'{self.Guess}\' in this phrase...\n\n'
                 f'You have {5 - self.missed} guess(es) remaining.')
@@ -70,7 +70,7 @@ class Game:
         if self.missed > 4:
             print("I'm afraid you have run out of guesses. You lose. Better luck next time :)")
             return True
-        elif self.active_phrase.check_complete():
+        elif self.active_phrase.check_complete(self.guesses):
             print("Congratulations! You guessed the phrase and won!!! :)")
             return True
         else:

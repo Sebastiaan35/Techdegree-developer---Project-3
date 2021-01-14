@@ -11,7 +11,7 @@ class Phrase:
         """Show letters that have been guessed and spaces, show dashes for the rest"""
         Visible = ''
         for letter in self.phrase:
-            if letter in self.guesses or letter == ' ':
+            if letter in guesses or letter == ' ':
                 Visible += ' ' + letter
             else:
                 Visible += ' -'
@@ -21,6 +21,6 @@ class Phrase:
         """Validate guess"""
         return Guess in self.phrase
 
-    def check_complete(self):
+    def check_complete(self, guesses):
         """Check if all letter have been guessed"""
-        return '-' not in self.display()
+        return '-' not in self.display(guesses)
