@@ -11,7 +11,13 @@ class Game:
         self.guesses = []
         self.missed = 0
         self.active_phrase = None
-        self.phrases = Phrase.phrases
+        self.phrases = [
+        Phrase("ALONE IN A CROWD", '', []),
+        Phrase("WITHIN THE REALM OF POSSIBILITY", '', []),
+        Phrase("YOU READ MY MIND", '', []),
+        Phrase("YOUVE NEVER LOOKED BETTER", '', []),
+        Phrase("ZERO GRAVITY", '', []),
+                        ]
 
     def start(self):
         """Game instance"""
@@ -30,6 +36,7 @@ class Game:
             print(Phrase(self.active_phrase, self.Guess, self.guesses).display())
 
     def welcome(self):
+        """Welcome message"""
         print("\nWelcome to Sebastiaan's Phrase Hunters game :)")
 
     def start_game(self):
@@ -37,9 +44,12 @@ class Game:
         self.active_phrase = self.get_random_phrase().lower()
 
     def get_random_phrase(self):
-        return random.choice(self.phrases)
+        """Retrieve a random phrase"""
+        obj = random.choice(self.phrases)
+        return obj.phrase
 
     def get_guess(self):
+        """Get valid user input"""
         UserInputOK = False
         while not UserInputOK:
             Inputy = str(input("Please, guess a letter: ")).lower()
@@ -57,6 +67,7 @@ class Game:
         return Inputy
 
     def game_over(self):
+        """Determine whether there is a win or loss event"""
         if self.missed > 4:
             print("I'm afraid you have run out of guesses. You lose. Better luck next time :)")
             return True
