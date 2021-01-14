@@ -1,26 +1,21 @@
 #!/usr/bin/env python3
 """The game module"""
-#Phrases were taken from: https://wofanswers.com/phrase
 import random
 from phrasehunter.phrase import Phrase
+from phrasehunter.phrase_list import string_list
 
 class Game:
-    """The game class"""
+    """The game class"""               
     def __init__(self):
         self.Guess = ''
         self.guesses = []
         self.missed = 0
         self.active_phrase = None
-        self.phrases = [
-        Phrase("ALONE IN A CROWD"),
-        Phrase("WITHIN THE REALM OF POSSIBILITY"),
-        Phrase("YOU READ MY MIND"),
-        Phrase("YOUVE NEVER LOOKED BETTER"),
-        Phrase("ZERO GRAVITY"),
-                        ]
+        #Credits for the beautiful list comprehension below go to: Jennifer Nordell
+        self.phrases = [Phrase(phrase_string) for phrase_string in string_list]
 
     def start(self):
-        """Game instance"""
+        """Method responsible for running a single game"""
         self.welcome()
         #Initialise the game phrase:
         self.start_game()

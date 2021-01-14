@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""This module is used to show the (secret phrase)"""
+"""Module for displaying the (partially hidden) phrase and validation"""
 
 class Phrase:
     """The phrase class"""
