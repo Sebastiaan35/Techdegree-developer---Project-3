@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """This module is used to show the (secret phrase)"""
-##from phrasehunter.game import Game
 
 class Phrase:
     """The phrase class"""
