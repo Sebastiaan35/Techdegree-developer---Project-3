@@ -12,11 +12,11 @@ class Game:
         self.missed = 0
         self.active_phrase = None
         self.phrases = [
-        Phrase("ALONE IN A CROWD", '', []),
-        Phrase("WITHIN THE REALM OF POSSIBILITY", '', []),
-        Phrase("YOU READ MY MIND", '', []),
-        Phrase("YOUVE NEVER LOOKED BETTER", '', []),
-        Phrase("ZERO GRAVITY", '', []),
+        Phrase("ALONE IN A CROWD"),
+        Phrase("WITHIN THE REALM OF POSSIBILITY"),
+        Phrase("YOU READ MY MIND"),
+        Phrase("YOUVE NEVER LOOKED BETTER"),
+        Phrase("ZERO GRAVITY"),
                         ]
 
     def start(self):
@@ -24,16 +24,16 @@ class Game:
         self.welcome()
         #Initialise the game phrase:
         self.start_game()
-        print(Phrase(self.active_phrase, self.Guess, self.guesses).display())
+        print(self.active_phrase.display(self.guesses))
         while not self.game_over():
             self.Guess = self.get_guess()
-            if not Phrase(self.active_phrase, self.Guess, self.guesses).check_letter():
+            if not self.active_phrase.check_letter(self.guess):
                 self.missed += 1
                 print(f'\nI\'m sorry. There is no \'{self.Guess}\' in this phrase...\n\n'
                 f'You have {5 - self.missed} guess(es) remaining.')
             else:
                 print(f'\nVery good! There is a(n) \'{self.Guess}\' in this phrase indeed.\n')
-            print(Phrase(self.active_phrase, self.Guess, self.guesses).display())
+            print(self.active_phrase.display(self.guesses))
 
     def welcome(self):
         """Welcome message"""
@@ -41,12 +41,11 @@ class Game:
 
     def start_game(self):
         """Assign a random phrase"""
-        self.active_phrase = self.get_random_phrase().lower()
+        self.active_phrase = self.get_random_phrase()
 
     def get_random_phrase(self):
         """Retrieve a random phrase"""
-        obj = random.choice(self.phrases)
-        return obj.phrase
+        return random.choice(self.phrases)
 
     def get_guess(self):
         """Get valid user input"""
@@ -71,7 +70,7 @@ class Game:
         if self.missed > 4:
             print("I'm afraid you have run out of guesses. You lose. Better luck next time :)")
             return True
-        elif Phrase(self.active_phrase, self.Guess, self.guesses).check_complete():
+        elif self.active_phrase.check_complete():
             print("Congratulations! You guessed the phrase and won!!! :)")
             return True
         else:

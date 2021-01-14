@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """This module is used to show the (secret phrase)"""
+##from phrasehunter.game import Game
 
 class Phrase:
     """The phrase class"""
-    def __init__(self, phrase, Guess, guesses):
+    def __init__(self, phrase):
         self.phrase = phrase.lower()
-        self.guesses = guesses
-        self.Guess = Guess
 
-    def display(self):
+    def display(self, guesses):
         """Show letters that have been guessed and spaces, show dashes for the rest"""
         Visible = ''
         for letter in self.phrase:
@@ -18,9 +17,9 @@ class Phrase:
                 Visible += ' -'
         return Visible
 
-    def check_letter(self):
+    def check_letter(self, Guess):
         """Validate guess"""
-        return self.Guess in self.phrase
+        return Guess in self.phrase
 
     def check_complete(self):
         """Check if all letter have been guessed"""
