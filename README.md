@@ -1,6 +1,6 @@
 This is Project 3 - OOP-phrase-hunter-game - of the Teamtreehouse developer techdegree
 
-Entry for preliminary review
+Entry for final review
 Developed by: Sebastiaan van Vugt
 Date: 9.Jan.2021
 
